@@ -22,34 +22,7 @@ $.getJSON("/articles", function (data) {
     }
 });
 
-$(document).on('click', '#scrape', function(){
-// Grab the articles as a json
-$('.display').empty()
-$.getJSON("/articles", function (data) {
-    // For each one
-    var newDiv = $('<div id=' + i + '>')
-   
-    console.log(data[0])
-    for (var i = 0; i < data.length; i++) {
-        if (i === 5) { break; }
-        console.log(data[0])
-        // Display the apropos information on the page
 
-        var newDiv = $('<div id=' + i + '>')
-        $(newDiv).append("<h1 id='fTitle'>"+data[i].title + "</h1>");
-        $(newDiv).append("<p class='fSummary' data-id ='"+data[i]._id+"'>"+data[i].summary +"'" +'</p>');
-        $(newDiv).append('<a class="fLink" href='+ data[i].link  +'>Link</a>'+"</br>"+"<div class='comment'></div>"+"<input class='bodyinput'></input>" + "<button data-id='" + data[i]._id + "' class='savenote' value = "+$("#bodyinput").val()+">Save Note</button>" )
-       $(".display"). append(newDiv)
-
-        //$(thisId).append("<textarea id='bodyinput' name='body'></textarea>")
-        
-        var thisId = (data[0]._id);
-        
-        console.log(thisId)
-    }
-});
-})
-  
 
 
   var thisId = $(this).attr("data-id");
